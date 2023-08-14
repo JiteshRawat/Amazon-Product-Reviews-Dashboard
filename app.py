@@ -252,8 +252,8 @@ def search(keyword):
     elapsed_time = et - st
     print('Execution time:', elapsed_time, 'seconds')
     
-    # return amazon_df, top_values
-    return "Data Extraction Successful"
+    return amazon_df, top_values
+    # return "Data Extraction Successful"
 
 #________________________________________________ amazon pipeline ________________________________________
 
@@ -324,8 +324,8 @@ input_value = st.text_input( "Search any product!", "")
 if st.button("Search") and input_value != "":
     placeholder = st.empty()
     placeholder.write("Thanks for your input. Scraping data... Generating report.. this might take a few minutes...")
-    result = search(input_value)
-    # amazon_data, top_products = search(input_value)
+    # result = search(input_value)
+    amazon_data, top_products = search(input_value)
     
     # st.write("Result:", result)
     placeholder.empty()
