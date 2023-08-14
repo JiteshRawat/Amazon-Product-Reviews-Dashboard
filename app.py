@@ -241,7 +241,7 @@ def search(keyword):
     st.write("4")
     
     amazon_df = pd.DataFrame.from_dict(data)
-    st.write("5")
+    st.table(amazon_df.head(5))
     amazon_df['title'].replace('', np.nan, inplace=True)
     st.write("6")
     amazon_df = amazon_df.dropna(subset=['title'])
