@@ -8,7 +8,7 @@ sns.set_style("white", rc = custom)
 card_style1 = """padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: #f7f7f7;"""
 
 
-from amazon_pipeline import search
+from amazon_pipeline import *
 # Page setting
 st.set_page_config(layout="wide")
 
