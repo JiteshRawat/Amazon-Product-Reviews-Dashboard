@@ -173,7 +173,7 @@ def get_links(keyword):
     URL =f"https://www.amazon.in/s?k={keyword}"
     # HTTP Request
     webpage = requests.get(URL, headers=HEADERS)
-    st.write(webpage)
+    st.write(webpage.text)
     # Soup Object containing all data
     soup = BeautifulSoup(webpage.content, "html.parser")
     # Fetch links as List of Tag Objects
