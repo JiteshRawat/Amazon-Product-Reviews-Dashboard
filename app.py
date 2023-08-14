@@ -330,8 +330,8 @@ if st.button("Search") and input_value != "":
     # st.write("Result:", result)
     placeholder.empty()
 
-    top_products= pd.read_csv("data/top_products_by_ratings.csv")
-    amazon_data= pd.read_csv("data/amazon_data.csv")
+    # top_products= pd.read_csv("data/top_products_by_ratings.csv")
+    # amazon_data= pd.read_csv("data/amazon_data.csv")
     best_sellers= amazon_data[amazon_data["is_best_seller"] == True].reset_index(drop=True)
 
     column = st.columns([1, 1, 1])
