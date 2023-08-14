@@ -173,6 +173,7 @@ def get_links(keyword):
     URL =f"https://www.amazon.in/s?k={keyword}"
     # HTTP Request
     webpage = requests.get(URL, headers=HEADERS)
+    st.write(webpage)
     # Soup Object containing all data
     soup = BeautifulSoup(webpage.content, "html.parser")
     # Fetch links as List of Tag Objects
@@ -227,6 +228,7 @@ def search(keyword):
 
     st.write("Search is called here")
     links_list= get_links(keyword)
+    st.write(links_list)
     st.write("2")
     if len(links_list) > 15:
         links_list= links_list[:15]
