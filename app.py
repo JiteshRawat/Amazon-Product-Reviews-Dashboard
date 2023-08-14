@@ -227,9 +227,10 @@ def search(keyword):
 
     st.write("Search is called here")
     links_list= get_links(keyword)
+    st.write("2")
     if len(links_list) > 15:
         links_list= links_list[:15]
-
+    st.write("3")
     data_dict = {"title":[], "price":[], "rating":[], "reviews_count":[], 
          "availability":[], 'is_best_seller' : [],  'product_link' :[] , 'img_link' : [],
          'total_ratings' : [], 'total_reviews': [], 'total_positive_ratings': [], 'total_positive_reviews': [],
@@ -237,14 +238,19 @@ def search(keyword):
           '3_star_percent' : [], '2_star_percent' : [], '1_star_percent' : [] }
     
     data= get_reviews(data_dict, links_list)
+    st.write("4")
     
     amazon_df = pd.DataFrame.from_dict(data)
+    st.write("5")
     amazon_df['title'].replace('', np.nan, inplace=True)
+    st.write("6")
     amazon_df = amazon_df.dropna(subset=['title'])
+    st.write("7")
     amazon_df[["total_ratings", "total_reviews", 'total_positive_ratings', 'total_positive_reviews', 'total_critical_ratings', 'total_critical_reviews']] = \
     amazon_df[["total_ratings", "total_reviews", 'total_positive_ratings', 'total_positive_reviews', 'total_critical_ratings', 'total_critical_reviews']].apply(pd.to_numeric)
     # amazon_df.to_csv("data/amazon_data.csv", header=True, index=False)
     top_values = amazon_df.nlargest(5, 'rating').reset_index(drop=True)
+    st.write("8")
     # top_values.to_csv("data/top_products_by_ratings.csv", index= False)
     
     return amazon_df, top_values
