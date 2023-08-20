@@ -233,8 +233,8 @@ def search(keyword):
     amazon_df[["total_ratings", "total_reviews", 'total_positive_ratings', 'total_positive_reviews', 'total_critical_ratings', 'total_critical_reviews']] = \
     amazon_df[["total_ratings", "total_reviews", 'total_positive_ratings', 'total_positive_reviews', 'total_critical_ratings', 'total_critical_reviews']].apply(pd.to_numeric)
     amazon_df.to_csv("data/amazon_data.csv", header=True, index=False)
-    top_values = amazon_df.nlargest(5, 'rating').reset_index(drop=True)
-    top_values.to_csv("data/top_products_by_ratings.csv", index= False)
+    # top_values = amazon_df.nlargest(5, 'rating').reset_index(drop=True)
+    # top_values.to_csv("data/top_products_by_ratings.csv", index= False)
    
     
     et = time.time()
