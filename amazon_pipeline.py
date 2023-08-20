@@ -88,13 +88,7 @@ def get_img_link(soup):
     try:
         image = soup.find("div", attrs={"id":'imgTagWrapperId'}).find('img', attrs= {'id' : 'landingImage'})['src']
     except:
-        try:
-            image= soup.find("div", attrs={"id":'img-canvas'}).find("img", attrs={ "class": "a-dynamic-image image-stretch-vertical frontImage"})['src']
-        except:
-            try:
-                image= soup.find("div", attrs={"id":'img-canvas'}).find("img", attrs={ "class": "a-dynamic-image image-stretch-horizontal frontImage"})['src']
-            except:
-                image= ""
+        image= ""
     return image
 
 
@@ -222,8 +216,8 @@ def search(keyword):
     # keyword = keyword
 
     links_list= get_links(keyword)
-    if len(links_list) > 30:
-        links_list= links_list[:30]
+    if len(links_list) > 15:
+        links_list= links_list[:15]
 
     data_dict = {"title":[], "price":[], "rating":[], "reviews_count":[], 
          "availability":[], 'is_best_seller' : [],  'product_link' :[] , 'img_link' : [],
@@ -238,17 +232,14 @@ def search(keyword):
     amazon_df = amazon_df.dropna(subset=['title'])
     amazon_df[["total_ratings", "total_reviews", 'total_positive_ratings', 'total_positive_reviews', 'total_critical_ratings', 'total_critical_reviews']] = \
     amazon_df[["total_ratings", "total_reviews", 'total_positive_ratings', 'total_positive_reviews', 'total_critical_ratings', 'total_critical_reviews']].apply(pd.to_numeric)
-    
-    # amazon_df.to_csv(f"data/amazon_data.csv", header=True, index=False)
-    amazon_df.to_csv(f"data/{keyword}.csv", header=True, index=False)
-    # top_values = amazon_df.nlargest(5, 'rating').reset_index(drop=True)
-    
-    
+    amazon_df.to_csv("data/amazon_data.csv", header=True, index=False)
+    top_values = amazon_df.nlargest(5, 'rating').reset_index(drop=True)
+    top_values.to_csv("data/top_products_by_ratings.csv", index= False)
    
     
     et = time.time()
     elapsed_time = et - st
     print('Execution time:', elapsed_time, 'seconds')
     
-    # return amazon_df, top_values
-    return "Data Extraction Successful"
+    return amazon_df, top_values
+    # return "Data Extraction Successful"

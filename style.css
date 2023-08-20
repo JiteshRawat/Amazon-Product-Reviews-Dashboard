@@ -60,13 +60,6 @@ div.vg-tooltip-element {
 
 
 .stButton button {
-    font-size: 100px; 
-    color: grey; 
-    background-color: white;
-    padding: 20px;
-    text-align: center;
-    border: 1px solid orange;
-    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.3);
-    transition: 0.3s; 
-    border-radius: 5px;
+    padding: 10px 30px; 
+    font-size: 20px;  
 }
