@@ -100,8 +100,8 @@ st.markdown(f''' <div style= "{card_style1} background-color: white; text-align:
 
 # Predefined button labels
 button_labels = [
-    "Amazon kindle", "Beauty", "Book", "Camera & Photo", 
-    "Electronics", "On ear Headphones", "Homes and Kitchen", 
+    "Amazon kindle", "Beauty", "Books", "Camera & Photo", 
+    "Electronics", "Headphones", "Homes and Kitchen", 
     "Mobile Accessories", "Men Apparels", "Women Apparels",  
     "Smart phones", "Toys & Games"   
 ]
